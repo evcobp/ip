@@ -1,0 +1,8 @@
+function onOpen(createDoc,createPdf) {
+  var ss = SpreadsheetApp.getActive();
+  var ui = SpreadsheetApp.getUi().createMenu('Invoices')
+           .addItem('Create','createDoc')
+           .addItem('Convert','createPdf')
+  .addToUi();
+}
+   
