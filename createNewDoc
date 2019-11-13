@@ -1,0 +1,118 @@
+function createDoc() {
+  var date = new Date();
+  
+
+  // Opens SS by its ID
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  var sheet = ss.getSheetByName('PaymentReceipt'); // or whatever is the name of the sheet
+  var fileName = sheet.getRange('G2:K2');
+  fileName.activate();
+  var selection = sheet.getSelection();
+  var cell = selection.getCurrentCell();
+  var cellValue = cell.getValue();
+  var jobNumber = cellValue;
+  var cellTwo = cell.offset(0,3);
+  var cellTwoValue = cellTwo.getValue();
+  var jobName = cellTwoValue;
+  var cellThree = cell.offset(0,4);
+  var cellThreeValue = cellThree.getValue();
+  var subName = cellThreeValue;
+      
+      //Make a copy of the template file
+  var documentId = DriveApp.getFileById('1-BABQFhaJ0c1akq97NKs4vgMZl32MCb_2Tqc5tmJQO8').makeCopy().getId();
+
+    //Rename the copied file
+    DriveApp.getFileById(documentId).setName('Subcontractor Payment Receipt - ' + (subName) + "#" + (jobNumber) + " " + (jobName));
+  
+  var body = DocumentApp.openById(documentId).getBody();
+
+  var rangeOne = sheet.getRange("A2:AF2");
+    for (var i=1; i>1; i++) {
+      cell = rangeOne.getCell(i,2);
+      payment = cell.getValue();
+      body.replaceText('{Payment Date}',payment);
+      cell = rangeOne.getCell(i,7);
+      jobnum = cell.getValue();
+      body.replaceText('{Job Number}',jobnum);
+      cell = rangeOne.getCell(i,10);
+      jobname = cell.getValue();
+      body.replaceText('{Job Name}',jobname);
+      cell = rangeOne.getCell(i,11);
+      company = cell.getValue();
+      body.replaceText('{Company}',company);
+      cell = rangeOne.getCell(i,9);
+      invoice = cell.getValue();
+      body.replaceText('{Invoice}',invoice);
+      cell = rangeOne.getCell(i,32);
+      payamount = cell.getValue();
+      body.replaceText('{Payment Amount}',payamount);
+      cell = rangeOne.getCell(i,3);
+      percomp = cell.getValue();
+      body.replaceText('{Percent Complete}',percomp);
+      cell = rangeOne.getCell(i,4);
+      balance = cell.getValue();
+      body.replaceText('{Balance Remaining}',balance);
+      
+    }
+  var table = body.appendTable();
+  
+  var rangeTwo = sheet.getRange("A2:AF2");
+    for (var i=1; i<2; i++) {
+      cell = rangeTwo.getCell(i,10);
+      workOne = cell.getValue();
+      cell = rangeTwo.getCell(i,12);
+      workOnePerc = cell.getValue();
+      cell = rangeTwo.getCell(i,13);
+      workOneAmount = cell.getValue();
+      cell = rangeTwo.getCell(i,14);
+      workTwo = cell.getValue();
+      cell = rangeTwo.getCell(i,16);
+      workTwoPerc = cell.getValue();
+      cell = rangeTwo.getCell(i,17);
+      workTwoAmount = cell.getValue();
+      cell = rangeTwo.getCell(i,18);
+      workThree = cell.getValue();
+      cell = rangeTwo.getCell(i,20);
+      workThreePerc = cell.getValue();
+      cell = rangeTwo.getCell(i,21);
+      workThreeAmount = cell.getValue();
+      cell = rangeTwo.getCell(i,22);
+      workFour = cell.getValue();
+      cell = rangeTwo.getCell(i,24);
+      workFourPerc = cell.getValue();
+      cell = rangeTwo.getCell(i,25);
+      workFourAmount = cell.getValue();
+      cell = rangeTwo.getCell(i,26);
+      workFive = cell.getValue();
+      cell = rangeTwo.getCell(i,28);
+      workFivePerc = cell.getValue();
+      cell = rangeTwo.getCell(i,29);
+      workFiveAmount = cell.getValue();
+    }
+    
+  var cells = [
+    [[workOne],[workOnePerc],[workOneAmount]],
+    [[workTwo],[workTwoPerc],[workTwoAmount]],
+    [[workThree],[workThreePerc],[workThreeAmount]],
+    [[workFour],[workFourPerc],[workFourAmount]],
+    [[workFive],[workFivePerc],[workFiveAmount]],
+    ];
+  body.appendTable(cells);
+}
+    
+function createPdf(rangeTwo) {
+    
+    var job = Browser.inputBox(rangeTwo, 'Job Number',       Browser.Buttons.OK);
+    var dtStr = Utilities.formatDate(new Date(), "GMT", "MMddyy")
+    // create temp file before edited with spreadsheet data
+    var tmpName = "tmpname"
+    var folder = DriveApp.getFolderById('1B_gC-saGVkzHngTCsOWvpoRD09nQ6vv4')
+    var tmpl = DriveApp.getFileById('1kFVy8XpYUtTMNxDCeuUVWpMQvRs5v7ggrPBn4k0OVpk');
+    // get document and make PDF in folder  
+    var doc = DriveApp.getFileByID(tmpl).getAs("application/pdf");
+    var pdf = doc.setName(job +"-"+dtStr+".pdf");
+
+    folder.createFile(pdf)    
+}
+    
