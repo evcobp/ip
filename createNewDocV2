@@ -1,0 +1,60 @@
+function onOpen(createDoc) {
+  var ss = SpreadsheetApp.getActive();
+  var ui = SpreadsheetApp.getUi().createMenu('Invoices')
+           .addItem('Print','createDoc')
+  .addToUi();
+}
+
+function createDoc() {
+  var date = new Date();
+  
+
+  // Opens SS by its ID
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  var sheet = ss.getSheetByName('PaymentReceipt'); // or whatever is the name of the sheet
+  var cell = sheet.getSelection().getCurrentCell();
+  var cellOne = cell.offset(0,6);
+  var cellOneValue = cellOne.getValue();
+  var jobNumber = cellOneValue;
+  var cellTwo = cell.offset(0,9);
+  var cellTwoValue = cellTwo.getValue();
+  var jobName = cellTwoValue;
+  var cellThree = cell.offset(0,10);
+  var cellThreeValue = cellThree.getValue();
+  var subName = cellThreeValue;
+  var cellFour = cell.offset(0,8);
+  var cellFourValue = cellFour.getValue();
+  var invoiceNum = cellFourValue;
+      //Make a copy of the template file
+  var documentId = DriveApp.getFileById('1-BABQFhaJ0c1akq97NKs4vgMZl32MCb_2Tqc5tmJQO8').makeCopy().getId();
+
+    //Rename the copied file
+    DriveApp.getFileById(documentId).setName('Subcontractor Payment Receipt - ' + (subName) + " " + "#" + (jobNumber) + " " + (jobName) + " " + '- Invoice #' + (invoiceNum));
+  
+  var body = DocumentApp.openById(documentId).getBody();
+  var text = body.editAsText();
+
+  var paymentDate = cell.offset(0,11);
+  var paymentDateValue = paymentDate.getValue();
+   body.replaceText('{Payment Date}',paymentDateValue);
+  var jobNumberDoc = jobNumber;
+   body.replaceText('{Job Number}',jobNumberDoc);
+  var jobNameDoc = jobName;
+   body.replaceText('{Job Name}',jobNameDoc);
+  var subNameDoc = subName;
+   body.replaceText('{Company}',subNameDoc);
+  var invoice = cell.offset(0,8);
+  var invoiceValue = invoice.getValue();
+   body.replaceText('{Invoice}',invoiceValue);
+  var workOne = cell.offset(0,12);
+  var workOneValue = workOne.getValue();
+   body.replaceText('{Work Request}',workOneValue);
+  var paymentAmount = cell.offset(0,13);
+  var paymentAmountValue = paymentAmount.getValue();
+   body.replaceText('{Payment Amount}',paymentAmountValue);
+  var balanceRemaining = cell.offset(0,3);
+  var balanceRemainingValue = balanceRemaining.getValue();
+   body.replaceText('{Balance Remaining}',balanceRemainingValue);
+   
+}
