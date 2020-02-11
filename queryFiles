@@ -1,0 +1,20 @@
+function queryFiles() {
+  var searchFor = 'title contains "Homestar"';
+  var names = [];
+  var fileIds = [];
+  var files = DriveApp.searchFiles(searchFor);
+  while (files.hasNext()) {
+    var file = files.next();
+    var fileId = file.getId();
+    fileIds.push(fileId);
+    var name = file.getName();
+    names.push(name);
+  
+}
+
+  for (var i=0;i<names.length;i++){
+    Logger.log(names[i]);
+    Logger.log("https://drive.google.com/uc?export=download&id=" + fileIds[i]);
+  }
+  
+}
