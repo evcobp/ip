@@ -1,0 +1,29 @@
+function addChangeOrders() {
+  var ss = SpreadsheetApp.getActive();
+  var copySheet = ss.getSheetByName('Change Order 10').copyTo(ss).setName('Change Order 12');
+  var sheet = ss.getSheetByName('ChangeOrders');
+  var req = '=' + 'Change Order 12!' + 'C6';
+  sheet.getRange('A20').setValue(req);
+  var desc = '=' + 'Validation!' + 'AN134';
+  sheet.getRange('B20').setValue(desc);
+  var co = 'Change Order 12';
+  sheet.getRange('C20').setValue(co);
+  var coReq = '=' + 'Change Order 12!' + 'C2';
+  sheet.getRange('D20').setValue(coReq);
+  var resultDate = '=' + 'Change Order 12!' + 'J3';
+  sheet.getRange('E20').setValue(resultDate);
+  var amountReq = '=' + 'Change Order 12!' + 'E20';
+  sheet.getRange('F20').setValue(amountReq);
+  var appDen = '=' + 'Change Order 12!' + 'J2';
+  sheet.getRange('G20').setValue(appDen);
+  var amountApp = '=' + 'Change Order 12!' + 'J6';
+  sheet.getRange('H20').setValue(amountApp);
+  var startDate = '=' + 'Change Order 12!' + 'J7';
+  sheet.getRange('I20').setValue(startDate);
+  var dateComp = '=' + 'Change Order 12!' + 'J8';
+  sheet.getRange('J20').setValue(dateComp);
+  var gcApp = '=' + 'Change Order 12!' + 'J4';
+  sheet.getRange('K20').setValue(gcApp);
+  var comments = '=' + 'Change Order 12!' + 'J5';
+  sheet.getRange('L20').setValue(comments);
+}
