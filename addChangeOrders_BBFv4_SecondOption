@@ -1,0 +1,22 @@
+function addChangeOrders() {
+  var x = 20;
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getSheetByName("Change Order 10");
+  var newChangeOrderSheet = sheet.copyTo(spreadsheet).setName("Change Order " + x);
+  
+  var changeOrderSheet = spreadsheet.getSheetByName("ChangeOrders");
+  var changeOrderRequestBy = changeOrderSheet.getRange("A29").setValue("='Change Order " + x + "'!C6");
+  var changeOrderDescription = changeOrderSheet.getRange("B29").setValue("=Validation!AN218");
+  var changeOrderName = changeOrderSheet.getRange("C29").setValue("Change Order " + x);
+  var changeOrderRequestDate = changeOrderSheet.getRange("D29").setValue("='Change Order " + x + "'!C2");
+  var changeOrderResultDate = changeOrderSheet.getRange("E29").setValue("='Change Order " + x + "'!J3");
+  var changeOrderAmountRequested = changeOrderSheet.getRange("F29").setValue("='Change Order " + x + "'!E29");
+  var changeOrderApproveDeny = changeOrderSheet.getRange("G29").setValue("='Change Order " + x + "'!J2");
+  var changeOrderAmountApproved = changeOrderSheet.getRange("H29").setValue("='Change Order " + x + "'!J6");
+  var changeOrderStartDate = changeOrderSheet.getRange("I29").setValue("='Change Order " + x + "'!J7");
+  var changeOrderDateCompleted = changeOrderSheet.getRange("J29").setValue("='Change Order " + x + "'!J8");
+  var changeOrderGCApproval = changeOrderSheet.getRange("K29").setValue("='Change Order " + x + "'!J4");
+  var changeOrderComments = changeOrderSheet.getRange("L29").setValue("='Change Order " + x + "'!J5");
+  
+  newChangeOrderSheet.hideSheet();
+}
