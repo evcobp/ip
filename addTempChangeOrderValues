@@ -1,0 +1,32 @@
+/*='Change Order 10'!C6	=Validation!AN110	
+  Change Order 10	
+  ='Change Order 10'!C2	
+  ='Change Order 10'!J3	
+  ='Change Order 10'!E20	
+  ='Change Order 10'!J2	
+  ='Change Order 10'!J6	
+  ='Change Order 10'!J7	
+  ='Change Order 10'!J8	
+  ='Change Order 10'!J4	
+  ='Change Order 10'!J5*/
+
+function tempChangeOrder() {
+
+  var values = [
+  "='Change Order 32'!C6",	
+  "=Validation!AN328",	
+  "ChangeOrder32",	
+  "='Change Order 32'!C2",	
+  "='Change Order 32'!J3",	
+  "='Change Order 32'!E20",	
+  "='Change Order 32'!J2",	
+  "='Change Order 32'!J6",	
+  "='Change Order 32'!J7",	
+  "='Change Order 32'!J8",	
+  "='Change Order 32'!J4",	
+  "='Change Order 32'!J5"
+  ];
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getSheetByName('ChangeOrders');
+      var first_row = sheet.getRange(['A41:L41']);
+  var first_row_values = first_row.setValues([values]);
