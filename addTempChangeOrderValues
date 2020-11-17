@@ -17,14 +17,14 @@ function tempChangeOrder() {
   "=Validation!AN328",	
   "Change Order 32",	
   "='Change Order 32'!C2",	
-  "='Change Order 32'!J3",	
+  "='Change Order 32'!J4",	
   "='Change Order 32'!E20",	
-  "='Change Order 32'!J2",	
-  "='Change Order 32'!J6",	
+  "='Change Order 32'!J3",	
   "='Change Order 32'!J7",	
   "='Change Order 32'!J8",	
-  "='Change Order 32'!J4",	
-  "='Change Order 32'!J5"
+  "='Change Order 32'!J9",	
+  "='Change Order 32'!J5",	
+  "='Change Order 32'!J6"
   ];
   var spreadsheet = SpreadsheetApp.getActive();
   var sheet = spreadsheet.getSheetByName('ChangeOrders');
