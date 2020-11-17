@@ -15,7 +15,7 @@ function tempChangeOrder() {
   var values = [
   "='Change Order 32'!C6",	
   "=Validation!AN328",	
-  "ChangeOrder32",	
+  "Change Order 32",	
   "='Change Order 32'!C2",	
   "='Change Order 32'!J3",	
   "='Change Order 32'!E20",	
