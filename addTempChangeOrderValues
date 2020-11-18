@@ -1,14 +1,14 @@
 /*='Change Order 10'!C6	=Validation!AN110	
   Change Order 10	
   ='Change Order 10'!C2	
-  ='Change Order 10'!J3	
+  ='Change Order 10'!J4	
   ='Change Order 10'!E20	
-  ='Change Order 10'!J2	
-  ='Change Order 10'!J6	
+  ='Change Order 10'!J3	
   ='Change Order 10'!J7	
   ='Change Order 10'!J8	
-  ='Change Order 10'!J4	
-  ='Change Order 10'!J5*/
+  ='Change Order 10'!J9	
+  ='Change Order 10'!J5	
+  ='Change Order 10'!J6*/
 
 function tempChangeOrder() {
 
