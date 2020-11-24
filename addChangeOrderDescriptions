@@ -1,0 +1,77 @@
+ function changeOrderDescriptions() {
+  var x = 15;
+  var changeOrder = [
+  "='Change Order " + x + "'!A9", 
+  "='Change Order " + x + "'!A10", 
+  "='Change Order " + x + "'!A11", 
+  "='Change Order " + x + "'!A12", 
+  "='Change Order " + x + "'!A13", 
+  "='Change Order " + x + "'!A14",
+  "='Change Order " + x + "'!A15",
+  "='Change Order " + x + "'!A16",
+  "='Change Order " + x + "'!A17",
+  "='Change Order " + x + "'!A18",
+  ];
+  
+  var changeOrderNumbers = [
+  "(1)",
+  "(2)",
+  "(3)",
+  "(4)",
+  "(5)",
+  "(6)",
+  "(7)",
+  "(8)",
+  "(9)",
+  "(10)"
+  ];
+  
+  var spreadsheet = SpreadsheetApp.getActive();
+  var validationSheet = spreadsheet.getSheetByName('Validation');
+  var changeOrderName = "Change Order " + x;
+  var changeOrderNameVersion = "Change Order " + x + "v";
+  var nameCell = validationSheet.getRange('AJ157').setValue(changeOrderName);
+  var nameCellVersion = validationSheet.getRange('AK157').setValue(changeOrderNameVersion);
+  var firstRange = validationSheet.getRange('AJ158').setValue(changeOrder[0]);
+  var firstNumber = validationSheet.getRange('AK158').setValue(changeOrderNumbers[0]);
+  var secondRange = validationSheet.getRange('AJ159').setValue(changeOrder[1]);
+  var secondNumber = validationSheet.getRange('AK159').setValue(changeOrderNumbers[1]);
+  var thirdRange = validationSheet.getRange('AJ160').setValue(changeOrder[2]);
+  var thirdNumber = validationSheet.getRange('AK160').setValue(changeOrderNumbers[2]);
+  var fourthRange = validationSheet.getRange('AJ161').setValue(changeOrder[3]);
+  var fourthNumber = validationSheet.getRange('AK161').setValue(changeOrderNumbers[3]);
+  var fifthRange = validationSheet.getRange('AJ162').setValue(changeOrder[4]);
+  var fifthNumber = validationSheet.getRange('AK162').setValue(changeOrderNumbers[4]);
+  var sixthRange = validationSheet.getRange('AJ163').setValue(changeOrder[5]);
+  var sixthNumber = validationSheet.getRange('AK163').setValue(changeOrderNumbers[5]);
+  var seventhRange = validationSheet.getRange('AJ164').setValue(changeOrder[6]);
+  var seventhNumber = validationSheet.getRange('AK164').setValue(changeOrderNumbers[6]);
+  var eighthRange = validationSheet.getRange('AJ165').setValue(changeOrder[7]);
+  var eighthNumber = validationSheet.getRange('AK165').setValue(changeOrderNumbers[7]);
+  var ninthRange = validationSheet.getRange('AJ166').setValue(changeOrder[8]);
+  var ninthNumber = validationSheet.getRange('AK166').setValue(changeOrderNumbers[8]);
+  var tenthRange = validationSheet.getRange('AJ167').setValue(changeOrder[9]);
+  var tenthNumber = validationSheet.getRange('AK167').setValue(changeOrderNumbers[9]);
+  
+  
+  /*var firstText = changeOrder[0].toString();
+  
+  var secondText = changeOrder[1].toString();
+  
+  var thirdText = changeOrder[2].toString();
+  
+  var fourthText = changeOrder[3].toString();
+  
+  var fifthText = changeOrder[4].toString();
+  
+  var sixthText = changeOrder[5].toString();
+  
+  var seventhText = changeOrder[6].toString();
+  
+  var eighthText = changeOrder[7].toString();
+ 
+  var ninthText = changeOrder[8].toString();
+ 
+  descRange.setValues([firstText, secondText, thirdText, fourthText, fifthText, sixthText, seventhText, eighthText, ninthText]);*/
+  
+}
